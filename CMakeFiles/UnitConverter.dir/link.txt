@@ -1,0 +1,1 @@
+/usr/bin/gcc -O3 -DNDEBUG CMakeFiles/UnitConverter.dir/main.c.o CMakeFiles/UnitConverter.dir/yeni.c.o -o UnitConverter 
