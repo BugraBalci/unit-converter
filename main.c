@@ -22,43 +22,43 @@ int main()
 			if (strcmp(targetType, "metre") == 0) {
 				printf("Degeriniz %f", value);
 			} else if (strcmp(targetType, "desimetre") == 0) {
-				printf("Degeriniz %f", lTodl(value));
+				printf("Degeriniz %f", mTodm(value));
 			}else if (strcmp(targetType, "santimetre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",dlTocl(value));
+				printf("Degeriniz %f",mTocm(value));
 			}else if(strcmp(targetType, "milimetre") == 0){
-				printf("Degeriniz %f",mmTocm(value));
+				printf("Degeriniz %f",mTomm(value));
 			}
 		}
 //		hacim(value,type);
 		if (strcmp(type, "desimetre") == 0) {
 			if (strcmp(targetType, "metre") == 0) {
-				printf("Degeriniz %f", dlTol(value));
+				printf("Degeriniz %f", dmTom(value));
 			} else if (strcmp(targetType, "desimetre") == 0) {
 				printf("Degeriniz %f", value);
 			}else if (strcmp(targetType, "santimetre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f", lTodl(value));
-			}else if(strcmp(targetType, "milimetre") == 0){
 				printf("Degeriniz %f", dmTocm(value));
+			}else if(strcmp(targetType, "milimetre") == 0){
+				printf("Degeriniz %f", dmTomm(value));
 			}
 		}
 		if (strcmp(type, "santimetre") == 0) {
 			if (strcmp(targetType, "metre") == 0) {
-				printf("Degeriniz %f",clTol(value));
+				printf("Degeriniz %f",cmTom(value));
 			} else if (strcmp(targetType, "desimetre") == 0) {
-				printf("Degeriniz %f", dlTol(value));
+				printf("Degeriniz %f", cmTodm(value));
 			}else if (strcmp(targetType, "santimetre") == 0) {//bunun fonk duruyo
 				printf("Degeriniz %f",value);
 			}else if (strcmp(targetType, "milimetre") == 0){
-				printf("Degeriniz %f",mTodm(value));
+				printf("Degeriniz %f",cmTomm(value));
 			}
 		}
 		if (strcmp(type, "milimetre") == 0) {
 			if (strcmp(targetType, "metre") == 0) {
-				printf("Degeriniz %f",clTol(value));
+				printf("Degeriniz %f",mmTom(value));
 			} else if (strcmp(targetType, "desimetre") == 0) {
-				printf("Degeriniz %f", dlTol(value));
+				printf("Degeriniz %f", mmTodm(value));
 			}else if (strcmp(targetType, "santimetre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",dlTol(value));
+				printf("Degeriniz %f",mmTocm(value));
 			}else if (strcmp(targetType, "milimetre") == 0){
 				printf("Degeriniz %f",value);
 			}
@@ -88,14 +88,14 @@ int main()
 			} else if (strcmp(targetType, "desilitre") == 0) {
 				printf("Degeriniz %f", value);
 			}else if (strcmp(targetType, "santilitre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f", lTodl(value));
+				printf("Degeriniz %f", dlTocl(value));
 			}
 		}
 		if (strcmp(type, "santilitre") == 0) {
 			if (strcmp(targetType, "litre") == 0) {
 				printf("Degeriniz %f",clTol(value));
 			} else if (strcmp(targetType, "desilitre") == 0) {
-				printf("Degeriniz %f", dlTol(value));
+				printf("Degeriniz %f", clTodl(value));
 			}else if (strcmp(targetType, "santilitre") == 0) {//bunun fonk duruyo
 				printf("Degeriniz %f",value);
 			}
@@ -116,7 +116,7 @@ int main()
 			} else if (strcmp(targetType, "kilogram") == 0) {
 				printf("Degeriniz %f", tTokg(value));
 			}else if (strcmp(targetType, "gram") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",tTogr(value));
+				printf("Degeriniz %f",kgTogr(value));
 			}
 		}
 		if (strcmp(type, "kilogram") == 0) {
@@ -125,14 +125,14 @@ int main()
 			} else if (strcmp(targetType, "kilogram") == 0) {
 				printf("Degeriniz %f", value);
 			}else if (strcmp(targetType, "gram") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f", tTokg(value));
+				printf("Degeriniz %f", kgTogr(value));
 			}
 		}
 		if (strcmp(type, "gram") == 0) {
 			if (strcmp(targetType, "ton") == 0) {
 				printf("Degeriniz %f",grTot(value));
 			} else if (strcmp(targetType, "kilogram") == 0) {
-				printf("Degeriniz %f", kgTot(value));
+				printf("Degeriniz %f", grTokg(value));
 			}else if (strcmp(targetType, "gram") == 0) {//bunun fonk duruyo
 				printf("Degeriniz %f",value);
 			}
