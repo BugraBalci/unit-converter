@@ -1,142 +1,95 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "common.h"
+#include <errno.h>
+#include <limits.h>
 
-int main()
-{
+int main(int argc, char* argv[]){
 	double value = 0;
 	int i = 0;
 	char type[20];
-	printf("Lutfen gireceğiniz olcu birimini giriniz\n1.Uzunluk\n2.hacim\n3.ağırlık\n");
-	scanf("%d",&i);
-	if(i == 1){
-		printf("Lutfen uzunluk degerinizin giriniz\n");
-		scanf("%lf",&value);
-		printf(" lutfen hacimsel cinsini giriniz:\n1.metre\n2.desimetre\n3.santimetre\n4.milimetre\n");
-		scanf("%s",type);
-		char targetType[20];
-		printf(" lutfen donusturmek istediginiz uzunlugu giriniz:\n1.metre\n2.desimetre\n3.santimetre\n4.milimetre\n");
-		scanf("%s", targetType);
-
-		if (strcmp(type, "metre") == 0) {
-			if (strcmp(targetType, "metre") == 0) {
-				printf("Degeriniz %f", value);
-			} else if (strcmp(targetType, "desimetre") == 0) {
-				printf("Degeriniz %f", mTodm(value));
-			}else if (strcmp(targetType, "santimetre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",mTocm(value));
-			}else if(strcmp(targetType, "milimetre") == 0){
-				printf("Degeriniz %f",mTomm(value));
-			}
+	char* units[] ={"mTodm","dmTocm","cmTomm","mTocm","mTomm","dmTomm","dmTom","cmTodm","mmTocm","mmTodm","mmTom","cmTom","lTodl"
+	"dlTocl","lTocl","clTodl","dlTol","clTol","tTokg","kgTogr","tTogr","kgTot","grTokg","grTot"};
+	if(strcmp(argv[1], "--help")==0) {
+		for(i = 0; i < 23; i++){
+			printf("%s\n", units[i]);
 		}
-//		hacim(value,type);
-		if (strcmp(type, "desimetre") == 0) {
-			if (strcmp(targetType, "metre") == 0) {
-				printf("Degeriniz %f", dmTom(value));
-			} else if (strcmp(targetType, "desimetre") == 0) {
-				printf("Degeriniz %f", value);
-			}else if (strcmp(targetType, "santimetre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f", dmTocm(value));
-			}else if(strcmp(targetType, "milimetre") == 0){
-				printf("Degeriniz %f", dmTomm(value));
-			}
+		return 0;
 		}
-		if (strcmp(type, "santimetre") == 0) {
-			if (strcmp(targetType, "metre") == 0) {
-				printf("Degeriniz %f",cmTom(value));
-			} else if (strcmp(targetType, "desimetre") == 0) {
-				printf("Degeriniz %f", cmTodm(value));
-			}else if (strcmp(targetType, "santimetre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",value);
-			}else if (strcmp(targetType, "milimetre") == 0){
-				printf("Degeriniz %f",cmTomm(value));
-			}
-		}
-		if (strcmp(type, "milimetre") == 0) {
-			if (strcmp(targetType, "metre") == 0) {
-				printf("Degeriniz %f",mmTom(value));
-			} else if (strcmp(targetType, "desimetre") == 0) {
-				printf("Degeriniz %f", mmTodm(value));
-			}else if (strcmp(targetType, "santimetre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",mmTocm(value));
-			}else if (strcmp(targetType, "milimetre") == 0){
-				printf("Degeriniz %f",value);
-			}
-		}
+	int ret;
+	char* ptr;
+	ret = strtol(argv[2],&ptr,10);
+	if(strcmp(argv[1],"mTodm")==0){
+		printf("%f\n",mTodm(ret));
 	}
-	if(i == 2){
-		printf("Lutfen hacim degerinizin giriniz\n");
-		scanf("%lf",&value);
-		printf(" lutfen hacimsel cinsini giriniz:\n1.litre\n2.desilitre\n3.santilitre\n");
-		scanf("%s",type);
-		char targetType[20];
-		printf(" lutfen donusturmek istediginiz hacimsel istediginizi giriniz:\n1.litre\n2.desilitre\n3.santilitre\n");
-		scanf("%s", targetType);
-
-		if (strcmp(type, "litre") == 0) {
-			if (strcmp(targetType, "litre") == 0) {
-				printf("Degeriniz %f", value);
-			} else if (strcmp(targetType, "desilitre") == 0) {
-				printf("Degeriniz %f", lTodl(value));
-			}else if (strcmp(targetType, "santilitre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",dlTocl(value));
-			}
-		}
-		if (strcmp(type, "desilitre") == 0) {
-			if (strcmp(targetType, "litre") == 0) {
-				printf("Degeriniz %f", dlTol(value));
-			} else if (strcmp(targetType, "desilitre") == 0) {
-				printf("Degeriniz %f", value);
-			}else if (strcmp(targetType, "santilitre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f", dlTocl(value));
-			}
-		}
-		if (strcmp(type, "santilitre") == 0) {
-			if (strcmp(targetType, "litre") == 0) {
-				printf("Degeriniz %f",clTol(value));
-			} else if (strcmp(targetType, "desilitre") == 0) {
-				printf("Degeriniz %f", clTodl(value));
-			}else if (strcmp(targetType, "santilitre") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",value);
-			}
-		}
+	if(strcmp(argv[1],"dmTocm")==0){
+		printf("%f\n",dmTocm(ret));
 	}
-	if(i == 3){
-		printf("Lutfen agirlik degerinizin giriniz\n");
-		scanf("%lf",&value);
-		printf(" lutfen agirlik cinsini giriniz:\n1.ton\n2.kilogram\n3.gram\n");
-		scanf("%s",type);
-		char targetType[20];
-		printf(" lutfen donusturmek istediginiz hacimsel istediginizi giriniz:\n1.ton\n2.kilogram\n3.gram\n");
-		scanf("%s", targetType);
-
-		if (strcmp(type, "ton") == 0) {
-			if (strcmp(targetType, "ton") == 0) {
-				printf("Degeriniz %f", value);
-			} else if (strcmp(targetType, "kilogram") == 0) {
-				printf("Degeriniz %f", tTokg(value));
-			}else if (strcmp(targetType, "gram") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",kgTogr(value));
-			}
-		}
-		if (strcmp(type, "kilogram") == 0) {
-			if (strcmp(targetType, "ton") == 0) {
-				printf("Degeriniz %f", kgTot(value));
-			} else if (strcmp(targetType, "kilogram") == 0) {
-				printf("Degeriniz %f", value);
-			}else if (strcmp(targetType, "gram") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f", kgTogr(value));
-			}
-		}
-		if (strcmp(type, "gram") == 0) {
-			if (strcmp(targetType, "ton") == 0) {
-				printf("Degeriniz %f",grTot(value));
-			} else if (strcmp(targetType, "kilogram") == 0) {
-				printf("Degeriniz %f", grTokg(value));
-			}else if (strcmp(targetType, "gram") == 0) {//bunun fonk duruyo
-				printf("Degeriniz %f",value);
-			}
-		}
+	if(strcmp(argv[1],"cmTomm")==0){
+		printf("%f\n",cmTomm(ret));
 	}
-	return 0;
+	if(strcmp(argv[1],"mTocm")==0){
+		printf("%f\n",mTocm(ret));
+	}
+	if(strcmp(argv[1],"mTomm")==0){
+		printf("%f\n",mTomm(ret));
+	}
+	if(strcmp(argv[1],"dmTomm")==0){
+		printf("%f\n",dmTomm(ret));
+	}
+	if(strcmp(argv[1],"dmTom")==0){
+		printf("%f\n",dmTom(ret));
+	}
+	if(strcmp(argv[1],"cmTodm")==0){
+		printf("%f\n",cmTodm(argc));
+	}
+	if(strcmp(argv[1],"mmTocm")==0){
+		printf("%f\n",mmTocm(argc));
+	}
+	if(strcmp(argv[1],"mmTodm")==0){
+		printf("%f\n",mmTodm(argc));
+	}
+	if(strcmp(argv[1],"mmTom")==0){
+		printf("%f\n",mmTom(argc));
+	}
+	if(strcmp(argv[1],"cmTom")==0){
+		printf("%f\n",cmTom(argc));
+	}
+	if(strcmp(argv[1],"lTodl")==0){
+		printf("%f\n",lTodl(argc));
+	}
+	if(strcmp(argv[1],"dlTocl")==0){
+		printf("%f\n",dlTocl(argc));
+	}
+	if(strcmp(argv[1],"lTocl")==0){
+		printf("%f\n",lTocl(argc));
+	}
+	if(strcmp(argv[1],"clTodl")==0){
+		printf("%f\n",clTodl(argc));
+	}
+	if(strcmp(argv[1],"dlTol")==0){
+		printf("%f\n",dlTol(argc));
+	}
+	if(strcmp(argv[1],"clTol")==0){
+		printf("%f\n",clTol(argc));
+	}
+	if(strcmp(argv[1],"tTokg")==0){
+		printf("%f\n",tTokg(argc));
+	}
+	if(strcmp(argv[1],"kgTogr")==0){
+		printf("%f\n",kgTogr(argc));
+	}
+	if(strcmp(argv[1],"tTogr")==0){
+		printf("%f\n",tTogr(argc));
+	}
+	if(strcmp(argv[1],"kgTot")==0){
+		printf("%f\n",kgTot(argc));
+	}
+	if(strcmp(argv[1],"grTokg")==0){
+		printf("%f\n",grTokg(argc));
+	}
+	if(strcmp(argv[1],"grTot")==0){
+		printf("%f\n",grTot(argc));
+	}
 }
