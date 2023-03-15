@@ -4,40 +4,52 @@
 
 
 
-double mTodm(double d){
-	return d*10;
+double mTodm(double d)
+{
+	return d * 10;
 }
-double dmTocm(double d){
-	return d*10;
+double dmTocm(double d)
+{
+	return d * 10;
 }
-double cmTomm(double d){
-	return d*10;
+double cmTomm(double d)
+{
+	return d * 10;
 }
-double mTocm(double d){//
+double mTocm(double d)
+{
 	return mTodm(dmTocm(d));
 }
-double mTomm(double d){//
+double mTomm(double d)
+{
 	return mTodm(dmTocm(cmTomm(d)));
 }
-double dmTomm(double d){//
+double dmTomm(double d)
+{
 	return dmTocm(cmTomm(d));
 }
-double dmTom(double d){
-	return d/10;
+double dmTom(double d)
+{
+	return d/ 10;
 }
-double cmTodm(double d){
-	return d/10;
+double cmTodm(double d)
+{
+	return d/ 10;
 }
-double mmTocm(double d){
-	return d/10;
+double mmTocm(double d)
+{
+	return d/ 10;
 }
-double mmTodm(double d){
+double mmTodm(double d)
+{
 	return mmTocm(cmTodm(d));
 }
-double mmTom(double d){
+double mmTom(double d)
+{
 	return mmTocm(cmTodm(d));
 }
-double cmTom(double d){
+double cmTom(double d)
+{
 	return cmTodm(dmTom(d));
 }
 
@@ -76,21 +88,27 @@ double clTol(double d){
 
 
 //agırlık
-double tTokg(double d){
+double tTokg(double d)
+{
 	return d * 1000;
 }
-double kgTogr(double d){
+double kgTogr(double d)
+{
 	return d*1000;
 }
-double tTogr(double d){
+double tTogr(double d)
+{
 	return tTokg(kgTogr(d));
 }
-double kgTot(double d){
+double kgTot(double d)
+{
 	return d / 1000;
 }
-double grTokg(double d){
+double grTokg(double d)
+{
 	return d / 1000;
 }
-double grTot(double d){
+double grTot(double d)
+{
 	return grTokg(kgTot(d));
 }
