@@ -9,7 +9,7 @@ double cone (double r,double h)
 }
 double sphere (double r)
 {
-	return (4/3* 3.14* r* r);
+	return (4 /3* 3.14* r* r);
 }
 //Alan
 double square (double r)
