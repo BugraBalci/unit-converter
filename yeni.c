@@ -1,6 +1,0 @@
-
-//hacim
-
-
-
-//uzunluk
