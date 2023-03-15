@@ -1,33 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "common.h"
-#include <errno.h>
-#include <limits.h>
+#include"UnitConverter.h"
+#include"VolumeArea.h"
 
 int main(int argc, char* argv[])
 {
 	double value = 0;
 	int i = 0;
 	char type[20];
-	int ret;
+	int ret,h;
 	char* ptr;
+	char* str;
 	if(argc == 1) {
 		printf("Lutfen --help komutu giriniz\n ");
 		return 0;
 	}
 	else if(argc == 2) {
-		char units[24][24] ={ "mTodm" , "dmTocm" , "cmTomm" , "mTocm" , "mTomm" , "dmTomm" , "dmTom" , "cmTodm" , "mmTocm" , "mmTodm" , "mmTom" , "cmTom" , "lTodl"
-		"dlTocl" , "lTocl" , "clTodl" , "dlTol" , "clTol" , "tTokg" , "kgTogr" , "tTogr" , "kgTot" , "grTokg" , "grTot" };
+		char *units[] ={ "mTodm" , "dmTocm" , "cmTomm" , "mTocm" , "mTomm" , "dmTomm" , "dmTom" , "cmTodm" , "mmTocm" , "mmTodm" , "mmTom" , "cmTom" , "lTodl"
+						 "dlTocl" , "lTocl" , "clTodl" , "dlTol" , "clTol" , "tTokg" , "kgTogr" , "tTogr" , "kgTot" , "grTokg" , "grTot","cone","sphere","square","circle" };
 		int unitssize = sizeof(units)/sizeof(units[0]);
 		if(strcmp(argv[1], "--help")==0) {
-					for(i = 0; i < unitssize; i++) {
-						printf("%s\n", units[i]);
-					}
-				}
+			for(i = 0; i < unitssize; i++) {
+				printf("%s\n", units[i]);
 			}
-			printf("Lutfen ilk argumaniniz fonksiyon ismi ikinci argumaniniz girmek istediginiz deger olsun\n");
-	if(argc == 3){
+		}
+	}
+
+	if(argc == 3 ){
+		printf("Lutfen ilk argumaniniz fonksiyon ismi ikinci argumaniniz girmek istediginiz deger olsun\n");
+		int p=0;
 		ret = strtol(argv[2], &ptr,10);
 		if(strcmp(argv[1], "mTodm") == 0) { // whitespace example
 			printf( "%f\n", mTodm(ret ));
@@ -100,6 +102,23 @@ int main(int argc, char* argv[])
 		}
 		if(strcmp(argv[1] , "grTot") == 0){
 			printf( "%f\n", grTot(ret));
+		}
+		if(strcmp(argv[1],"sphere")==0){
+			printf("%f\n",sphere(ret));
+		}
+		if(strcmp(argv[1],"square")==0){
+			printf("%f\n",square(ret));
+		}
+		if(strcmp(argv[1],"circle")==0){
+			printf("%f\n",circle(ret));
+		}
+	}
+	if(argc == 4){
+		printf("Lutfen ilk argumaniniz fonksiyon ismi ikinci argumaniniz girmek istediginiz deger olsun\n");
+		ret = strtol(argv[2], &ptr,10);
+		h= strtol(argv[3],&str,10);
+		if(strcmp(argv[1],"cone")==0){
+			printf("%f\n",cone(ret,h));
 		}
 	}
 }
